@@ -1,5 +1,9 @@
 let allMovies = [];
 
+function display(text) {
+    document.getElementById("result").innerHTML += text;
+}
+
 //Define a movie class with parameters title (string), rating (number) and haveWatched (boolean)
 class Movie {
     constructor(title, rating, haveWatched) {
@@ -12,7 +16,7 @@ class Movie {
 //add a movie OBJECT to the allMovies array
 let addMovie = (movie) => {
     //document.getElementById("a1").innerHTML = "A new movie is added";
-    console.log("A new movie is added");
+    display("A new movie is added<br>");
     allMovies.push(movie);
 }
 
@@ -20,82 +24,39 @@ let addMovie = (movie) => {
 //Display the total number of movies in allMovies array
 let printMovies = () => {
     //document.getElementById("p1").innerHTML = "Printing all movies....";
-    console.log("Printing all movies....");
+    display("Printing all movies....<br>");
     let count = 0;
     for (let i = 0; i < allMovies.length; i++) {
         //document.getElementById("p2").innerHTML = allMovies[i].title + ", rating of " + allMovies[i].rating + ", haveWatched:" + allMovies[i].haveWatched;
-        console.log(allMovies[i].title + ", rating of " + allMovies[i].rating + ", haveWatched:" + allMovies[i].haveWatched);
+        display(allMovies[i].title + ", rating of " + allMovies[i].rating + ", havewatched: " + allMovies[i].haveWatched + "<br>");
         count++;
     }
     //document.getElementById("p3").innerHTML = "\nYou have " + count + " movies in total";
-    console.log("\nYou have " + count + " movies in total");
+    display("<br>You have " + count + " movies in total<br>");
 }
 
 
 //Display only the movies that has a rating higher than rating(argument)
 //Display the total number of matches
 let highRatings = (rating) => {
-    console.log("printing movie that has a rating higher than " + rating);
+    display("printing movie that has a rating higher than " + rating + "<br>");
     let numMatches = 0;
     for (let i = 0; i < allMovies.length; i++) {
         if(allMovies[i].rating > rating) {
-            console.log(allMovies[i].title + " has a rating of " + allMovies[i].rating);
+            display(allMovies[i].title + " has a rating of " + allMovies[i].rating + "<br>");
             numMatches++;
         }
     }
-    console.log("\nIn total, there are " + numMatches + " matches");
+    display("<br>In total, there are " + numMatches + " matches<br>");
 }
 
 
 //Toggle the 'haveWatched' property of the specified movie 
 let changeWatched = (title) => {
-    console.log("changing the status of the movie...");
+    display("changing the status of the movie...<br>");
     title.haveWatched = !title.haveWatched;
 }
 
-
-// ////////////////////////////////////////////////////////////
-// //SHOW ON WEBSITE
-// let a = new Movie("Spiderman", 3, true);
-// let b = new Movie("Citizen Kane", 4, false);
-// let c = new Movie("Zootopia", 4.5, true);
-
-// allMovies.push(x,y,z);
-
-// /*replace console.log with display on web page*/
-// document.getElementById("1").innerHTML = "----------------";
-// document.getElementById("2").innerHTML = "running program......";
-// document.getElementById("3").innerHTML = "----------------";
-// printMovies();
-
-
-// let movie4 = new Movie("Parasite", 2, false);
-
-// /*replace console.log with display on web page*/
-// document.getElementById("4").innerHTML = "----------------";
-// addMovie(movie1);
-// document.getElementById("5").innerHTML = "----------------";
-
-
-
-// changeWatched("Spiderman");
-// /*replace console.log with display on web page*/
-// document.getElementById("6").innerHTML = "----------------";
-
-// printMovies();
-
-// /*replace console.log with display on web page*/
-// document.getElementById("7").innerHTML = "----------------";
-
-// changeWatched("Spiderman");
-// /*replace console.log with display on web page*/
-// document.getElementById("8").innerHTML = "----------------";
-
-// printMovies();
-// /*replace console.log with display on web page*/
-// document.getElementById("9").innerHTML = "----------------";
-
-// highRatings(3.5);
 
 ////////////////////////////////////////////////////////////
 //Test code - DO NOT DELETE
@@ -106,36 +67,36 @@ let z = new Movie("Zootopia", 4.5, true);
 allMovies.push(x,y,z);
 
 /*replace console.log with display on web page*/
-console.log("----------------");
-console.log("running program......");
-console.log("----------------");
+display("----------------<br>");
+display("running program......<br>");
+display("----------------<br>");
 printMovies();
 
 
 let movie1 = new Movie("Parasite", 2, false);
 
 /*replace console.log with display on web page*/
-console.log("----------------");
+display("----------------<br>");
 addMovie(movie1);
-console.log("----------------");
+display("----------------<br>");
 
 
 
 changeWatched("Spiderman");
 /*replace console.log with display on web page*/
-console.log("----------------");
+display("----------------<br>");
 
 printMovies();
 
 /*replace console.log with display on web page*/
-console.log("----------------");
+display("----------------<br>");
 
 changeWatched("Spiderman");
 /*replace console.log with display on web page*/
-console.log("----------------");
+display("----------------<br>");
 
 printMovies();
 /*replace console.log with display on web page*/
-console.log("----------------");
+display("----------------<br>");
 
 highRatings(3.5);
